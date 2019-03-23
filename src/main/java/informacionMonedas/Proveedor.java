@@ -1,20 +1,39 @@
 package informacionMonedas;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
 
 @Entity
-public class proveedor {
-	
+@Table(name = "PROVEEDOR")
+public class Proveedor {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "CODIGO_FISCAL")
 	private String codigoIDFiscal;
+	
+	@Column(name ="NOMBRE")
 	private String nombre;
-	private int CP;
+	
+	@Column(name ="CODIGO_POSTAL")
+	private int cp;
+	
+	@Column(name ="EMAIL")
 	private String email;
+	
+	@Column(name ="TELEFONO")
 	private String telefono;
-	public proveedor(String codigoIDFiscal, String nombre, int cP, String email, String telefono) {
-		super();
+	
+	
+	
+	
+	public Proveedor(String codigoIDFiscal, String nombre, int cp, String email, String telefono) {
 		this.codigoIDFiscal = codigoIDFiscal;
 		this.nombre = nombre;
-		CP = cP;
+		this.cp = cp;
 		this.email = email;
 		this.telefono = telefono;
 	}
@@ -31,10 +50,10 @@ public class proveedor {
 		this.nombre = nombre;
 	}
 	public int getCP() {
-		return CP;
+		return this.cp;
 	}
-	public void setCP(int cP) {
-		CP = cP;
+	public void setCP(int cp) {
+		this.cp = cp;
 	}
 	public String getEmail() {
 		return email;

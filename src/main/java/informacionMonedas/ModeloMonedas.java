@@ -2,20 +2,37 @@ package informacionMonedas;
 
 import javax.persistence.*;
 
+import org.springframework.data.annotation.Id;
+
 @Entity
-public class modeloMonedas {
-	
-	private String valorFacial;
-	private String unidadMonetaria;
-	private double diametro;
-	private double peso;
-	private String metal;
-	private String descripcion;
+@Table(name = "MODELO_MONEDAS")
+public class ModeloMonedas {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "MONEDA_ID")
 	private int id;
 	
-	public modeloMonedas(String valorFacial, String unidadMonetaria, double diametro, double peso, String metal,
+	@Column(name = "VALOR_FACIAL")
+	private String valorFacial;
+	
+	@Column(name = "UNIDAD_MONETARIA")
+	private String unidadMonetaria;
+	
+	@Column(name = "DIAMETRO")
+	private double diametro;
+	
+	@Column(name = "PESO")
+	private double peso;
+	
+	@Column(name = "METAL")
+	private String metal;
+	
+	@Column(name = "DESCRIPCION")
+	private String descripcion;
+	
+	
+	public ModeloMonedas(String valorFacial, String unidadMonetaria, double diametro, double peso, String metal,
 			String descripcion, int id) {
-		super();
 		this.valorFacial = valorFacial;
 		this.unidadMonetaria = unidadMonetaria;
 		this.diametro = diametro;
