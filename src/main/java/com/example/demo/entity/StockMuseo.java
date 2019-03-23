@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,16 +18,16 @@ public class StockMuseo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private int anioAcuniacion;
+	private Date anioAcuniacion;
 	private String ciudadAcuniacion;
-	private String fechaAdquisicion;
+	private Date fechaAdquisicion;
 	private String estadoConservacion;
 	@OneToOne
 	private ModeloMonedas modeloMonedas;	
 	@OneToOne
 	private Proveedor proveedor;
 	
-	public StockMuseo(int anioAcuniacion, String ciudadAcuniacion, String fechaAdquisicion,
+	public StockMuseo(Date anioAcuniacion, String ciudadAcuniacion, Date fechaAdquisicion,
 			String estadoConservacion, Proveedor proveedor,ModeloMonedas moneda) {
 		this.anioAcuniacion = anioAcuniacion;
 		this.ciudadAcuniacion = ciudadAcuniacion;
@@ -40,10 +42,10 @@ public class StockMuseo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getAnioAcuniacion() {
+	public Date getAnioAcuniacion() {
 		return anioAcuniacion;
 	}
-	public void setAnioAcuniacion(int anioAcuniacion) {
+	public void setAnioAcuniacion(Date anioAcuniacion) {
 		this.anioAcuniacion = anioAcuniacion;
 	}
 	public String getCiudadAcuniacion() {
@@ -52,10 +54,10 @@ public class StockMuseo {
 	public void setCiudadAcuniacion(String ciudadAcuniacion) {
 		this.ciudadAcuniacion = ciudadAcuniacion;
 	}
-	public String getFechaAdquisicion() {
+	public Date getFechaAdquisicion() {
 		return fechaAdquisicion;
 	}
-	public void setFechaAdquisicion(String fechaAdquisicion) {
+	public void setFechaAdquisicion(Date fechaAdquisicion) {
 		this.fechaAdquisicion = fechaAdquisicion;
 	}
 	public String getEstadoConservacion() {
