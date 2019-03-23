@@ -1,47 +1,37 @@
-package informacionMonedas;
+package com.example.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
-import org.springframework.data.annotation.Id;
 
 @Entity
 @Table(name = "PROVEEDOR")
 public class Proveedor {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "CODIGO_FISCAL")
-	private String codigoIDFiscal;
-	
-	@Column(name ="NOMBRE")
+	private long codigo_fiscal;
 	private String nombre;
-	
-	@Column(name ="CODIGO_POSTAL")
-	private int cp;
-	
-	@Column(name ="EMAIL")
+	private int codigo;
 	private String email;
-	
-	@Column(name ="TELEFONO")
 	private String telefono;
 	
 	
 	
 	
-	public Proveedor(String codigoIDFiscal, String nombre, int cp, String email, String telefono) {
-		this.codigoIDFiscal = codigoIDFiscal;
+	public Proveedor(String nombre, int cp, String email, String telefono) {
 		this.nombre = nombre;
-		this.cp = cp;
+		this.codigo = cp;
 		this.email = email;
 		this.telefono = telefono;
 	}
-	public String getCodigoIDFiscal() {
-		return codigoIDFiscal;
+	public long getcodigo_fiscal() {
+		return codigo_fiscal;
 	}
-	public void setCodigoIDFiscal(String codigoIDFiscal) {
-		this.codigoIDFiscal = codigoIDFiscal;
+	public void setcodigo_fiscal(long codigo_fiscal) {
+		this.codigo_fiscal = codigo_fiscal;
 	}
 	public String getNombre() {
 		return nombre;
@@ -50,10 +40,10 @@ public class Proveedor {
 		this.nombre = nombre;
 	}
 	public int getCP() {
-		return this.cp;
+		return this.codigo;
 	}
 	public void setCP(int cp) {
-		this.cp = cp;
+		this.codigo = cp;
 	}
 	public String getEmail() {
 		return email;

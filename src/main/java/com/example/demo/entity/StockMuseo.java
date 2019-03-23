@@ -1,49 +1,38 @@
-package informacionMonedas;
+package com.example.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.Id;
+
 
 @Entity
 @Table(name = "STOCK_MUSEO")
 public class StockMuseo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "MUSEO_STOCK_ID")
 	private int id;
-	
-	@Column(name = "ANIO_ACUNADA")
 	private int anioAcuniacion;
-	
-	@Column(name = "CIUDAD_ACUNADA")
 	private String ciudadAcuniacion;
-	
-	@Column(name = "FECHA_ADQUISICION")
 	private String fechaAdquisicion;
-	
-	@Column(name = "ESTADO")
 	private String estadoConservacion;
-	
 	@OneToOne
-	private ModeloMonedas modeloMonedas;
-	
+	private ModeloMonedas modeloMonedas;	
 	@OneToOne
 	private Proveedor proveedor;
 	
-	public StockMuseo(int id, int anioAcuniacion, String ciudadAcuniacion, String fechaAdquisicion,
-			String estadoConservacion, Proveedor proveedor) {
-		super();
-		this.id = id;
+	public StockMuseo(int anioAcuniacion, String ciudadAcuniacion, String fechaAdquisicion,
+			String estadoConservacion, Proveedor proveedor,ModeloMonedas moneda) {
 		this.anioAcuniacion = anioAcuniacion;
 		this.ciudadAcuniacion = ciudadAcuniacion;
 		this.fechaAdquisicion = fechaAdquisicion;
 		this.estadoConservacion = estadoConservacion;
 		this.proveedor = proveedor;
+		this.modeloMonedas = moneda;
 	}
 	public int getId() {
 		return id;

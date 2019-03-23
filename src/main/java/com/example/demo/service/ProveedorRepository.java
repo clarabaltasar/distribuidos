@@ -1,12 +1,13 @@
-package service;
+package com.example.demo.service;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import informacionMonedas.Proveedor;
+
+import com.example.demo.entity.Proveedor;
 
 public interface ProveedorRepository extends JpaRepository<Proveedor,String> {
 	Proveedor findByNombre(String nombre);
 	Proveedor findByTelefono(String telefono);
-	List<Proveedor> findByCodigoPostal(int cp);
+	List<Proveedor> findByCodigo(int codigo);
 }
