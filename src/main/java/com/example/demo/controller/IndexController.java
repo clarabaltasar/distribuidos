@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -40,16 +41,35 @@ public class IndexController {
 	}
 	@RequestMapping("/proveedor")
 	public String goProveedor(Model model) {
-//		List<Proveedor> proveedores = repProveedor.findAll();
-//		model.put(proveedores,"listaProveedores");
+		List<Proveedor> proveedores = repProveedor.findAll();
+		model.addAttribute("listaProveedores", proveedores);
 		return  "ConsultarProveedores";
 	}
 	@RequestMapping("/modelo-monedas")
 	public String goModeloMonedas(Model model) {
+		List<ModeloMonedas> modelos = repMonedas.findAll();
+		model.addAttribute("listaMonedas", modelos);
 		return  "ConsultarModelosMonedas";
 	}
 	@RequestMapping("/stock-museo")
 	public String goStock(Model model) {
+		List<StockMuseo> stock = repStock.findAll();
+		model.addAttribute("stock", stock);
 		return  "ConsultarStock";
+	}
+	@RequestMapping("/gestionarMonedas")
+	public String goGestionarMonedas(Model model) {
+		
+		return  "gestionarMonedas";
+	}
+	@RequestMapping("/gestionarProveedores")
+	public String goGestionarProveedores(Model model) {
+		
+		return  "gestionarProveedores";
+	}
+	@RequestMapping("/gestionarStock")
+	public String goGestionarStock(Model model) {
+		
+		return  "gestionarStock";
 	}
 }

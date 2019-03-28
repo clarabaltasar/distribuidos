@@ -27,6 +27,11 @@ public class StockMuseo {
 	@OneToOne
 	private Proveedor proveedor;
 	
+	
+	
+	public StockMuseo() {
+		
+	}
 	public StockMuseo(Date anioAcuniacion, String ciudadAcuniacion, Date fechaAdquisicion,
 			String estadoConservacion, Proveedor proveedor,ModeloMonedas moneda) {
 		this.anioAcuniacion = anioAcuniacion;
@@ -72,5 +77,12 @@ public class StockMuseo {
 	public void setProveedor(Proveedor proveedor) {
 		this.proveedor = proveedor;
 	}
+	public ModeloMonedas getModeloMonedas() {
+		return modeloMonedas;
+	}
+	public void setModeloMonedas(ModeloMonedas modeloMonedas) {
+		this.modeloMonedas = modeloMonedas;
+	}
+	
 
 }

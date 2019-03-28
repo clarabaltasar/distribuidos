@@ -16,6 +16,11 @@ public class ModeloMonedas {
 	private String descripcion;
 	
 	
+	
+	public ModeloMonedas() {
+	
+	}
+
 	public ModeloMonedas(String valor_facial, String unidad_monetaria, double diametro, double peso, String metal,
 			String descripcion) {
 		this.valor_facial = valor_facial;
@@ -81,9 +86,4 @@ public class ModeloMonedas {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	
-	
-	
-
 }
