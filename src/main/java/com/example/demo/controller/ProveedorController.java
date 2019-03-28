@@ -32,10 +32,7 @@ public class ProveedorController {
 //		repMonedas.save(m1);
 //		repStock.save(new StockMuseo(1997,"Madrid","17/02/2008","BUENO", p1,m1));
 //	}
-//	@RequestMapping("/")
-//	public String goHome(Model model) {
-//		return  "index";
-//	}
+	
 	
 	
 

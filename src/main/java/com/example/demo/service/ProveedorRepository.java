@@ -10,4 +10,5 @@ public interface ProveedorRepository extends JpaRepository<Proveedor,String> {
 	Proveedor findByNombre(String nombre);
 	Proveedor findByTelefono(String telefono);
 	List<Proveedor> findByCodigo(int codigo);
+	List<Proveedor> findAll();
 }
