@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -39,6 +40,8 @@ public class IndexController {
 	}
 	@RequestMapping("/proveedor")
 	public String goProveedor(Model model) {
+//		List<Proveedor> proveedores = repProveedor.findAll();
+//		model.put(proveedores,"listaProveedores");
 		return  "ConsultarProveedores";
 	}
 	@RequestMapping("/modelo-monedas")

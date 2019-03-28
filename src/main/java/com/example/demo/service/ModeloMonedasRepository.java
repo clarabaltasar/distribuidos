@@ -9,4 +9,5 @@ import com.example.demo.entity.ModeloMonedas;
 public interface ModeloMonedasRepository extends JpaRepository<ModeloMonedas,Long> {
 	ModeloMonedas findById(long id);
 	List<ModeloMonedas> findByMetal(String metal);
+	//dd
 }
