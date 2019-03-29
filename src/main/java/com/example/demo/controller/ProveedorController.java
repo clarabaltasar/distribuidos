@@ -1,11 +1,16 @@
 package com.example.demo.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.ModeloMonedas;
 import com.example.demo.entity.Proveedor;
@@ -14,25 +19,40 @@ import com.example.demo.service.MonedasRepository;
 import com.example.demo.service.ProveedorRepository;
 import com.example.demo.service.StockRepository;
 
+
+
 @Controller
 public class ProveedorController {
-//	@Autowired
-//	private ProveedorRepository repProveedor;
-//	@Autowired
-//	private MonedasRepository repMonedas;
-//	@Autowired
-//	private StockRepository repStock;
-//	@PostConstruct
-//	public void init() {
-//		Proveedor p1 = new Proveedor("Proveedor 1", 28965,"proveedor1@gmail.com","666554433");
-//		ModeloMonedas m1 = new ModeloMonedas("cara","Euros",20.5,20,"Acero","MONEDA MUY BONITA");
-//		repProveedor.save(p1);
-//		repProveedor.save(new Proveedor("Proveedor 2", 28950,"proveedor2@gmail.com","666554499"));
-//		repProveedor.save(new Proveedor("Proveedor 3", 28950,"proveedor3@gmail.com","666557788"));
-//		repMonedas.save(m1);
-//		repStock.save(new StockMuseo(1997,"Madrid","17/02/2008","BUENO", p1,m1));
-//	}
+
+	@Autowired
+	private ProveedorRepository repProveedor;
 	
+	@Autowired
+	private MonedasRepository repMonedas;
+	
+	@Autowired
+	private StockRepository repStock;
+	
+	@RequestMapping("/proveedor")
+	public String goProveedor(Model model) {
+		List<Proveedor> proveedores = repProveedor.findAll();
+		model.addAttribute("listaProveedores", proveedores);
+		return  "ConsultarProveedores";
+	}
+	
+	@RequestMapping(value = "/proveedor/añadir/submit", method = RequestMethod.POST)
+    public String añadirProveedor(Proveedor proveedor,
+				            @RequestParam Optional<String> nombreProveedor,
+				            @RequestParam Optional<Integer> codigoProveedor,
+				            @RequestParam Optional<String> emailProveedor,
+				            @RequestParam Optional<String> telefonoProveedor){
+				            
+                        
+        //proveedor.setDuenoPropiedad(propietarioRepository.getOne(idPropietario));
+        
+        repProveedor.save(proveedor);
+        return "ConsultarProveedores";
+    }
 	
 	
 
